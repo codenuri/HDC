@@ -1,9 +1,19 @@
+==> 아래 에서 강사 소스 다운 받을수 있습니다.
+github.com/codenuri/HDC  
+
 ==> 컴파일러 설치 방법
 GCC
 1. mingw 다운 받아서 압축 풀기
 2. C:\mingw64\bin 에 복사
 3. PATH 환경 변수에 mingw\bin 폴더 등록
 4. 명령프롬프트(cmd) 에서 "gcc --version" 로 확인
+
+MS 컴파일러
+1. visual studio 설치..(설치시, "C++을 사용한 데스크탑 개발 체크")
+
+==> 숙제. clang 컴파일러 설치해 보세요
+         clang first.c   로 컴파일 해보세요
+
 
 
 => 소스 코드 작성
@@ -17,6 +27,36 @@ cl  /Tc  first.txt
 
 gcc first.c
 cl  first.c
+
+== C언어로 프로그램을 작성하려면
+1. 메모장등으로 소스 코드 작성 + 명령프롬프트에서 컴파일
+
+2. 프로그래밍 전용 편집기로 코드 작성 + 명령 프롬프트에서 컴파일
+  => visual studio code(MS제품), atom, eclipse,
+  => 과제 : visual studio code, atom 등을 설치해서 사용해 보세요
+
+3. 통합 개발 환경(IDE, Integrated Develop Environment) 사용
+  => 편집기와 컴파일러를 같이 제공하는 환경
+  => 소스 작성후, 메뉴(단축키)를 선택하면 자동으로 컴파일러 실행
+  => 컴파일 시에는 설치되어 있는 컴파일러 사용
+  => visual studio 2019,2022 등,, 
+
+ 구글에서 "programming editor"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
