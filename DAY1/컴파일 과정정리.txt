@@ -1,0 +1,26 @@
+==> 컴파일러 설치 방법
+GCC
+1. mingw 다운 받아서 압축 풀기
+2. C:\mingw64\bin 에 복사
+3. PATH 환경 변수에 mingw\bin 폴더 등록
+4. 명령프롬프트(cmd) 에서 "gcc --version" 로 확인
+
+
+=> 소스 코드 작성
+1. 메모장등을 실행해서 작성
+2. 원하는 폴더에서 first.txt 로 저장
+
+=> 컴파일하는 방법 (교재 4page)
+1. 명령 프롬프트에서 소스가 있는 폴더로 이동후
+gcc -x c first.txt
+cl  /Tc  first.txt
+
+gcc first.c
+cl  first.c
+
+
+
+
+
+
+
