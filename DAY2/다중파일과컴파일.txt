@@ -1,0 +1,75 @@
+1. main.c    add.c 만들고,, 꼭 저장하세요
+
+2. cl main.c  빌드해서 에러 읽어 보세요 => add 찾을수 없다.
+   cl add.c   빌드해서 에러 읽어 보세요 => 진입점이 없다.(main 이 없다는것)
+
+3. 링크 하지 말고 컴파일만 수행하기
+   cl main.c /c		=> main.obj  생성됩니다.
+   cl add.c  /c         => add.obj   생성됩니다.
+
+   dir *.obj
+
+4. 링크 하기
+   link   main.obj   add.obj  => main.exe 로 생성됩니다.
+                                 main 함수가 있는 object 이름
+				 모든 object 중에 오직 한개만 
+			         main 있어야 합니다.
+
+
+5. 위 과정을 편리하게 하려면 아래 처럼하면 됩니다.
+   cl main.c add.c   
+
+//=======================================================
+
+잘 만들어지 함수가 담긴 파일을 배포하는 방법
+
+1. 소스 파일로 배포 
+   소스 2개와 add.c, sub.c 와 헤더 2개(add.h sub.h)
+   => 사용자가 소스를 컴파일 해서 사용
+   => cl add.c /c 등으로 한후 link 사용
+
+2. 미리 컴파일 해서 obj 파일 배포
+   => 2개의 object(add.obj, sub.obj) 와 2개의 헤더
+   => 사용자는 헤더를 include 한후 link 만 하면 된다.
+   => link main2.c add.obj  sub.obj
+
+3. 연관된 obj 를 묶어서 한개의 파일로 배포 => .lib 파일
+   => 명령 프롬프트에서 "lib add.obj sub.obj /out:my.lib"
+   => 리눅스 : archive add.o sub.o
+
+   => 사용자는 설계자에게 2개의 헤더(add.h , sub.h) 와 1개의 라이브러리(my.lib)
+      를 받아야 합니다.(헤더를 한개로 묶기도 합니다.)
+      cl main2.c /c    	      => main 컴파일
+      link main2.obj my.lib  
+
+      또는 아래 처럼 한줄로!!
+      cl main2.c  my.lib  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
