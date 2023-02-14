@@ -72,3 +72,14 @@ int main()
 		_getch(); // 키보드 누를때 까지 대기하는 C 표준 함수
 	}
 }
+
+// 구글 : "source code line" 검색후 1번째 위키피디아 클릭  
+
+// 구글에서 "name convention" 검색
+// 다음중 좋은 것은 ?
+// 
+// 1. WeekOfDay
+// 
+// 2. weekOfDay
+// 
+// 3. week_of_day
