@@ -41,7 +41,22 @@ int is_possible(int xpos, int ypos, int block_no, int rotate)
 	return 1;
 }
 
+void fill_board(int xpos, int ypos, int block_no, int rotate)
+{
+	int no = block_no * 4 + rotate;
 
+	for (int y = 0; y < 4; y++)
+	{
+		for (int x = 0; x < 4; x++)
+		{
+			// 게임판 배열 에 블럭 내용 채운후에
+			if (block[no][y][x] == 1)
+
+				board[ypos + y][xpos + x] = 1;
+		}
+	}
+	draw_board();
+}
 
 
 
@@ -118,6 +133,7 @@ void game_loop()
 			else
 			{
 				// 더이상 내려 갈수 없다.
+				fill_board(xpos, ypos, block_no, rotate);
 				break;
 			}			
 		}
