@@ -13,8 +13,6 @@
 #define HEIGHT	20
 
 
-// 게임 판의 상태를 관리하는 2차원 배열
-// => 대부분에 함수에서 접근해야 한다. 전역변수!
 int board[HEIGHT + 1][WIDTH + 2] = { 0 };
 
 
@@ -23,6 +21,29 @@ void erase_block(int xpos, int ypos, int block_no, int rotate);
 void game_loop();
 void init_board();
 void draw_board();
+
+
+// step 11. 블럭이 이동가능한지 조사
+
+// xpos, ypos 위치에 블럭이 올수 있는가 ?
+int is_possible(int xpos, int ypos, int block_no, int rotate)
+{
+	int no = block_no * 4 + rotate;
+
+	for (int y = 0; y < 4; y++)
+	{
+		for (int x = 0; x < 4; x++)
+		{
+			if (board[ypos+y][xpos + x] == 1 && block[no][y][x] == 1)
+				return 0;
+		}
+	}
+	return 1;
+}
+
+
+
+
 
 
 int main()
@@ -71,14 +92,14 @@ void game_loop()
 
 					case LEFT:
 						erase_block(xpos, ypos, block_no, rotate);
-						if (xpos > 0)
+
+						if ( is_possible( xpos-1, ypos, block_no, rotate) == 1)
 							--xpos;
 						continue;
-						break;
-
+	
 					case RIGHT:
 						erase_block(xpos, ypos, block_no, rotate);
-						if (xpos < 12)
+						if (is_possible(xpos + 1, ypos, block_no, rotate) == 1)
 							++xpos;
 						continue;
 					}
@@ -89,9 +110,16 @@ void game_loop()
 
 			erase_block(xpos, ypos, block_no, rotate);
 
-			++ypos;
 
-			if (ypos == 18) break;
+			if (is_possible(xpos, ypos+1, block_no, rotate) == 1)
+			{
+				++ypos;
+			}
+			else
+			{
+				// 더이상 내려 갈수 없다.
+				break;
+			}			
 		}
 
 	}
@@ -115,7 +143,6 @@ void init_board()
 
 void draw_board()
 {
-	// board 배열의 내용을 그린다.
 
 	for (int y = 0; y < HEIGHT + 1; y++)
 	{
