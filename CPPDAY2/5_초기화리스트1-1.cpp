@@ -1,0 +1,33 @@
+// 5_초기화리스트1-1
+#include <string>
+
+int main()
+{
+	// 초기화 vs 대입
+	int a = 0; // 초기화 : 선언하면서 넣는것
+
+	int b;
+	b = 0;	// 대입 : 선언후(생성후)에 넣는것
+
+	// primitive type : 초기화와 대입이 대부분의 경우 동일한 성능
+
+	// user define type : 항상 초기화가 빠릅니다.!
+	// 초기화 : 함수 1회 호출(생성자)
+	// 대입   : 함수 2회 호출(생성자, 대입연산자)
+
+	std::string s1 = "hello"; // std::string s1("hello")
+							  // 즉, 인자가 한개인 생성자 호출
+
+	std::string s2;	// 1. 디폴트 생성자 호출
+
+	s2 = "hello";	// 2. s2.operator=("hello") 
+					//    즉,대입 연산자 함수 호출
+
+	// 3. 일부 타입은 초기화는 되지만 대입은 안됩니다.
+	const int c1 = 10; // ok
+
+	const int c2; // error
+	c2 = 10; // error
+}
+
+
