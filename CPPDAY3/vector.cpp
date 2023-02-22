@@ -16,7 +16,7 @@ void vector::set_at(int idx, int value)
 	ptr[idx] = value;
 }
 
-int vector::get_at(int idx)
+int vector::get_at(int idx) const
 {
 	return ptr[idx];
 }
@@ -40,7 +40,7 @@ void vector::resize(int newsize)
 	}
 }
 
-int vector::size()
+int vector::size() const 
 {
 	return sz;
 }
