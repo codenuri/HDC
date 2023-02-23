@@ -52,8 +52,8 @@ int main()
 	// 연산자 재정의를 지원하는 모든 언어의 원리는 동일합니다.
 	// 약속된 함수 호출
 	// C++: operator+ 
-	// C# : 함수이름이 +
-	// Python : _Add
+	// C# : operator+
+	// Python : __add__
 }
 
 
